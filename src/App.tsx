@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import CoinList from "./components/CoinList";
+import Coin from "./components/Coin";
+import ICoin, { mapResponseToCoinArray } from "./Interfaces/ICoin";
+import { getCoins } from "./api";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [coins, setCoins] = useState<ICoin[]>([]);
+
+  useEffect(() => {
+    getCoins()
+      .then((data) => {
+        const coins = mapResponseToCoinArray(data.data.data);
+        setCoins(coins);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex justify-center my-10">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CoinList coins={coins} />} />
+          <Route path="coin/:id" element={<Coin />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
