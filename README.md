@@ -9,6 +9,10 @@ Una gran compañía de bienes raíces requiere crear un sitio para obtener infor
 Se necesita crear una lista de cripto-moneda, mostrar el cambio a dólares (usd), lista de filtros y mostrar el detalle.
 https://www.coinlore.com/cryptocurrency-data-api
 
+# Used Technologies
+
+`reactjs` `typescript` `tailwind` `jest` `react testing library` `axios`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
