@@ -13,6 +13,10 @@ https://www.coinlore.com/cryptocurrency-data-api
 
 `reactjs` `typescript` `tailwind` `jest` `react testing library` `axios`
 
+# Deployed Version (Netlify)
+
+https://crypto-search-weelo.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
